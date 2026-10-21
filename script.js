@@ -53,42 +53,6 @@ const projects = {
     tools:["Wireshark","TCP/IP","DNS","Packet Filters"],
     evidence:[["Capture file","Add sanitized .pcapng file if safe"],["Screenshots","Add genuine analysis screenshots"],["Technical write-up","Add observations and conclusions"],["Repository","Add lab notes repository"]],
     note:"Only publish sanitized packet captures. Network traces can expose IP addresses, identifiers, and other sensitive information."
-  },
-  soc:{
-    number:"PROJECT_004",category:"SECURITY OPERATIONS",
-    title:"SOC Log Monitoring & Threat Detection Lab",
-    summary:"A planned lab exploring how security events are collected, analysed, and investigated.",
-    status:"PLANNED / IN PROGRESS — not represented as a completed lab.",
-    sections:[
-      {title:"What is the project?",content:"A proposed security-monitoring lab for exploring system logs, authentication events, alert triage, and basic detection logic."},
-      {title:"Why work on it?",content:"SOC analysts review telemetry, investigate alerts, distinguish routine activity from suspicious patterns, and document response decisions."},
-      {title:"Objective",content:"Build a controlled lab, review sample system and authentication logs, investigate repeated failed logins, and document a defensible investigation workflow."},
-      {title:"Planned activities",items:["Examine system and authentication logs.","Investigate repeated failed login attempts.","Identify suspicious authentication patterns.","Develop basic detection rules.","Document findings and recommended responses."]},
-      {title:"Skills to develop",items:["Security log analysis.","Alert triage and investigation.","Detection logic fundamentals.","Incident documentation.","Risk assessment and response recommendations."]},
-      {title:"Outcome",content:"This lab remains planned until completed. Add the tools used, sample events, detection logic, investigation notes, and verified results after doing the work."},
-      {title:"Real-world relevance",content:"SOC teams use log analysis and alert investigation to identify potentially malicious activity and coordinate appropriate response."}
-    ],
-    tools:["Splunk or Wazuh (planned)","Windows Event Logs","Linux Logs"],
-    evidence:[["Lab repository","Add after lab is completed"],["Detection rules","Add tested rules"],["Investigation report","Add sanitized report"],["Screenshots","Add genuine lab screenshots"]],
-    note:"The tools and activities are proposed lab scope, not evidence of a completed SOC investigation. Clearly label future work until it is performed."
-  },
-  network:{
-    number:"PROJECT_005",category:"NETWORK DEFENSE",
-    title:"Network Security Configuration Lab",
-    summary:"Practical networking work focused on architecture, connectivity, firewall concepts, and troubleshooting.",
-    status:"Document each activity and evidence as it is completed.",
-    sections:[
-      {title:"What is the project?",content:"A network-security learning project exploring network architecture, connectivity, configuration, and basic defensive controls."},
-      {title:"Why work on it?",content:"Networking fundamentals help explain how systems communicate and how access controls, segmentation, and troubleshooting contribute to defense."},
-      {title:"Objective",content:"Practise addressing and connectivity, examine configuration choices, explore access restrictions, and document the resulting lab behavior."},
-      {title:"Activities described",items:["Practise IPv4 addressing and subnetting.","Configure and examine network connectivity.","Explore firewall configuration and access restrictions.","Investigate troubleshooting scenarios.","Document configurations and security recommendations."]},
-      {title:"Skills developed",items:["Network configuration.","Defensive controls fundamentals.","Connectivity analysis and troubleshooting.","Understanding firewall policies.","Technical documentation."]},
-      {title:"Outcome",content:"Add actual topology diagrams, configuration snippets with sensitive details removed, test results, and explanations of any issues resolved."},
-      {title:"Real-world relevance",content:"Network configuration and access control are important to reducing unnecessary exposure and supporting reliable, secure communications."}
-    ],
-    tools:["Cisco Packet Tracer","MikroTik RouterOS","Wireshark"],
-    evidence:[["Topology diagram","Add diagram"],["Configuration evidence","Add sanitized configuration"],["Screenshots","Add genuine lab screenshots"],["Technical write-up","Add lab report"]],
-    note:"Do not publish passwords, public management addresses, or sensitive router configuration details."
   }
 };
 
