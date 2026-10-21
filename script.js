@@ -18,26 +18,8 @@ const projects = {
     evidence:[["GitHub repository","Add repository URL"],["Assessment screenshots","Add genuine screenshots"],["Technical write-up","Add report or write-up"],["Demo / documentation","Add an authorized demo or report"]],
     note:"Only test systems you own or have explicit permission to assess. Remove credentials, personal data, and confidential findings before publishing evidence."
   },
-  securescan:{
-    number:"PROJECT_002",category:"CYBERSECURITY WEB DEVELOPMENT",
-    title:"SecureScan — Cybersecurity Portfolio Website",
-    summary:"A responsive cybersecurity-themed website to organize and present security-related work, technical information, and assessment findings.",
-    status:"Describe only features that are implemented and tested.",
-    sections:[
-      {title:"What was the project?",content:"A web development project focused on presenting cybersecurity projects and technical information through a structured, responsive interface."},
-      {title:"Why did I build it?",content:"To strengthen frontend development skills and explore how a clear interface can make technical information easier to navigate."},
-      {title:"Objective",content:"Create a responsive website with clear information hierarchy and interactive elements using standard frontend technologies."},
-      {title:"Activities and features",items:["Structured the website using HTML.","Designed the interface with CSS.","Added interactive behavior using JavaScript.","Used Bootstrap and Chart.js as part of the stated technology stack.","Organized cybersecurity projects and related information."]},
-      {title:"Skills developed",items:["HTML and CSS.","JavaScript and interface interactions.","Responsive design.","Technical information presentation.","Frontend project organization."]},
-      {title:"Outcome",content:"Add screenshots and a repository so visitors can verify the implemented interface and features. Do not describe it as a functioning vulnerability scanner unless scanning functionality was built and tested."},
-      {title:"Real-world relevance",content:"Security teams use dashboards and interfaces to organize findings and communicate technical information. This project explores the presentation layer of that experience."}
-    ],
-    tools:["HTML","CSS","JavaScript","Bootstrap","Chart.js"],
-    evidence:[["GitHub repository","Add SecureScan repository"],["Interface screenshots","Add genuine screenshots"],["Live demo","Add deployed demo URL"],["Technical documentation","Add README or project notes"]],
-    note:"This project is described as a cybersecurity portfolio website. Do not claim it performs vulnerability detection or scanning unless those capabilities genuinely exist."
-  },
   wireshark:{
-    number:"PROJECT_003",category:"NETWORK SECURITY",
+    number:"PROJECT_002",category:"NETWORK SECURITY",
     title:"Network Traffic Analysis Using Wireshark",
     summary:"A hands-on learning project focused on understanding network communication and analysing packets in a controlled environment.",
     status:"The source portfolio labels these activities as planned; update this project as tasks are completed.",
