@@ -21,20 +21,58 @@ const projects = {
   wireshark:{
     number:"PROJECT_002",category:"NETWORK SECURITY",
     title:"Network Traffic Analysis Using Wireshark",
-    summary:"A hands-on learning project focused on understanding network communication and analysing packets in a controlled environment.",
-    status:"The source portfolio labels these activities as planned; update this project as tasks are completed.",
+    summary:"An ongoing hands-on network security project focused on capturing and analyzing network traffic using Wireshark. The project explores TCP/IP communication, DNS queries, packet inspection, and network troubleshooting in a controlled lab environment.",
+    status:"Status: In Progress — Active hands-on learning lab.",
+    tools:["Wireshark","TCP/IP","DNS","Windows networking tools"],
     sections:[
-      {title:"What is the project?",content:"A practical packet-analysis lab designed to examine network communication and learn how protocols appear in packet captures."},
-      {title:"Why work on it?",content:"Packet analysis supports network troubleshooting and helps security analysts investigate communication patterns and unusual activity."},
-      {title:"Objective",content:"Capture or inspect traffic in a controlled environment, apply protocol filters, record observations, and explain the relevant security considerations."},
-      {title:"Planned activities",items:["Examine TCP connections and network protocols.","Analyse DNS queries and responses.","Apply packet filters to investigate traffic.","Study HTTP requests and HTTPS connection metadata.","Document observations and security considerations."]},
-      {title:"Skills developed",items:["Network protocol analysis.","Packet inspection and filtering.","DNS and TCP/IP fundamentals.","Network troubleshooting.","Technical documentation."]},
-      {title:"Outcome",content:"This project is marked as a learning activity until completed evidence is added. Publish a sanitized capture, screenshots, filters used, observations, and conclusions."},
-      {title:"Real-world relevance",content:"Packet analysis can help investigate connectivity problems, understand protocol behavior, and support defensive investigations."}
+      {
+        title:"Project Overview",
+        content:"Network traffic analysis is the process of capturing, decoding, and inspecting data packets traversing a communication network. It provides visibility into how hosts, services, and protocols interact, helping identify connectivity issues, configuration flaws, and potential security threats. Wireshark is an industry-standard packet analysis tool that captures raw network frames in real time and decodes protocols across network layers, enabling deep inspection of packet headers, protocol handshakes, payloads, and communication flows."
+      },
+      {
+        title:"Current Progress",
+        items:[
+          "Status: In Progress",
+          "Current Stage: Learning packet capture, filtering, and protocol analysis."
+        ]
+      },
+      {
+        title:"Planned Activities",
+        items:[
+          "Capture network traffic from my own computer or an authorized lab.",
+          "Learn to use Wireshark capture and display filters.",
+          "Analyze TCP connections and communication patterns.",
+          "Inspect DNS queries and responses.",
+          "Examine packet retransmissions and connection failures.",
+          "Investigate unusual traffic patterns when appropriate.",
+          "Document observations and capture screenshots for evidence."
+        ]
+      },
+      {
+        title:"Tools and Technologies",
+        items:[
+          "Wireshark",
+          "TCP/IP",
+          "DNS",
+          "Windows networking tools"
+        ],
+        tags:[
+          "Wireshark",
+          "TCP/IP",
+          "DNS",
+          "Windows networking tools"
+        ]
+      },
+      {
+        title:"Project Evidence",
+        content:"Evidence will be added as the project progresses."
+      },
+      {
+        title:"GitHub Repository",
+        repoUrl: null
+      }
     ],
-    tools:["Wireshark","TCP/IP","DNS","Packet Filters"],
-    evidence:[["Capture file","Add sanitized .pcapng file if safe"],["Screenshots","Add genuine analysis screenshots"],["Technical write-up","Add observations and conclusions"],["Repository","Add lab notes repository"]],
-    note:"Only publish sanitized packet captures. Network traces can expose IP addresses, identifiers, and other sensitive information."
+    note:"All network analysis activities are conducted strictly on personal systems or authorized learning environments. Captures and traces will be sanitized before publishing."
   }
 };
 
@@ -78,9 +116,19 @@ filterButtons.forEach(button=>button.addEventListener("click",()=>{
 }));
 
 function renderSections(sections){
+  if(!sections)return "";
   return sections.map(s=>{
-    let body=s.content?`<p>${escapeHTML(s.content)}</p>`:"";
+    let body="";
+    if(s.content)body+=`<p>${escapeHTML(s.content)}</p>`;
     if(s.items)body+=`<ul>${s.items.map(i=>`<li>${escapeHTML(i)}</li>`).join("")}</ul>`;
+    if(s.tags)body+=`<div class="modal-tech">${s.tags.map(t=>`<span>${escapeHTML(t)}</span>`).join("")}</div>`;
+    if(s.repoUrl !== undefined){
+      if(s.repoUrl){
+        body+=`<p><a href="${escapeHTML(s.repoUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View GitHub Repository ↗</a></p>`;
+      } else {
+        body+=`<p class="repo-plain-text">Repository coming soon</p>`;
+      }
+    }
     return `<section class="modal-section"><h3>${escapeHTML(s.title)}</h3>${body}</section>`;
   }).join("");
 }
@@ -91,15 +139,31 @@ function openProject(key){
   const p=projects[key];
   if(!p)return;
   lastFocusedElement=document.activeElement;
-  modalContent.innerHTML=`
+
+  const hasToolsSection = p.sections && p.sections.some(s=>s.title.toLowerCase().includes("tools"));
+  const hasEvidenceSection = p.sections && p.sections.some(s=>s.title.toLowerCase().includes("evidence"));
+
+  let html=`
     <p class="eyebrow">${escapeHTML(p.number)} / ${escapeHTML(p.category)}</p>
     <h2 id="modalTitle">${escapeHTML(p.title)}</h2>
     <p class="modal-description">${escapeHTML(p.summary)}</p>
-    <p class="project-status-note">${escapeHTML(p.status)}</p>
-    <section class="modal-section"><h3>Tools & Technologies</h3><div class="modal-tech">${p.tools.map(t=>`<span>${escapeHTML(t)}</span>`).join("")}</div></section>
-    ${renderSections(p.sections)}
-    <section class="modal-section"><h3>Evidence & Documentation</h3><p>These resources are placeholders until actual evidence URLs are added.</p><div class="modal-evidence-grid">${renderEvidence(p.evidence)}</div></section>
-    <section class="modal-section"><h3>Publication note</h3><p class="modal-disclaimer">${escapeHTML(p.note)}</p></section>`;
+    <p class="project-status-note">${escapeHTML(p.status)}</p>`;
+
+  if(p.tools && !hasToolsSection){
+    html+=`<section class="modal-section"><h3>Tools & Technologies</h3><div class="modal-tech">${p.tools.map(t=>`<span>${escapeHTML(t)}</span>`).join("")}</div></section>`;
+  }
+
+  html+=renderSections(p.sections);
+
+  if(p.evidence && !hasEvidenceSection){
+    html+=`<section class="modal-section"><h3>Evidence & Documentation</h3><p>These resources are placeholders until actual evidence URLs are added.</p><div class="modal-evidence-grid">${renderEvidence(p.evidence)}</div></section>`;
+  }
+
+  if(p.note){
+    html+=`<section class="modal-section"><h3>Publication note</h3><p class="modal-disclaimer">${escapeHTML(p.note)}</p></section>`;
+  }
+
+  modalContent.innerHTML=html;
   projectModal.classList.add("is-open");
   projectModal.setAttribute("aria-hidden","false");
   document.body.classList.add("modal-open");
