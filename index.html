@@ -108,6 +108,30 @@
     </div>
   </div>
 
+  <div class="modal cert-modal" id="certModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-cert-modal></div>
+    <div class="modal-dialog cert-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="certModalTitle" tabindex="-1">
+      <div class="modal-topbar">
+        <span class="modal-label" id="certModalCategory">CERTIFICATE VERIFICATION</span>
+        <div class="cert-modal-controls">
+          <a href="#" id="certModalExtLink" target="_blank" rel="noopener noreferrer" class="cert-ext-btn">Open full original ↗</a>
+          <button class="modal-close" id="certModalClose" aria-label="Close certificate preview">×</button>
+        </div>
+      </div>
+      <div class="cert-modal-content">
+        <div class="cert-modal-img-wrap">
+          <img id="certModalImg" src="" alt="Certificate preview" class="cert-modal-img">
+        </div>
+        <div class="cert-modal-details">
+          <h2 id="certModalTitle">Certificate</h2>
+          <p id="certModalIssuer" class="cert-modal-provider"></p>
+          <div id="certModalBadges" class="cert-meta-tags"></div>
+          <div id="certModalCredlyWrap" class="cert-modal-credly"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <section class="section section-border" id="labs">
     <div class="container">
       <div class="section-heading"><p class="eyebrow">03 / PRACTICAL LEARNING</p><h2>Practice beyond <span class="accent">theory.</span></h2><p class="section-description">Hands-on labs and learning activities are separate from formal certifications.</p></div>
@@ -145,11 +169,159 @@
     <div class="container">
       <div class="section-heading"><p class="eyebrow">06 / CERTIFICATIONS & TRAINING</p><h2>Structured <span class="accent">learning.</span></h2><p class="section-description">Formal training complements hands-on practice; practical labs are listed separately above.</p></div>
       <div class="certification-list">
-        <article class="certification-card"><div class="certification-icon">01</div><div class="certification-info"><span class="certification-provider">NPTEL • IIT KHARAGPUR</span><h3>Programming in Java</h3><p>Programming foundations and structured problem-solving.</p></div><div class="certification-action"><span class="verification-status">CERTIFICATE LINK NEEDED</span><a href="#contact" class="text-link">Add evidence ↗</a></div></article>
-        <article class="certification-card"><div class="certification-icon">02</div><div class="certification-info"><span class="certification-provider">HACKERRANK</span><h3>Problem Solving (Intermediate)</h3><p>Problem-solving and programming practice.</p></div><div class="certification-action"><span class="verification-status">CREDENTIAL LINK NEEDED</span><a href="#contact" class="text-link">Add evidence ↗</a></div></article>
-        <article class="certification-card"><div class="certification-icon">03</div><div class="certification-info"><span class="certification-provider">IBM SKILLSBUILD</span><h3>Artificial Intelligence Fundamentals</h3><p>Foundational understanding of artificial intelligence concepts.</p></div><div class="certification-action"><span class="verification-status">CERTIFICATE LINK NEEDED</span><a href="#contact" class="text-link">Add evidence ↗</a></div></article>
-        <article class="certification-card"><div class="certification-icon">04</div><div class="certification-info"><span class="certification-provider">IIRO • ISOC BENGALURU CHAPTER</span><h3>Professional Certificate Program in Internet Governance and Digital Policy</h3><p>Training in internet governance and digital policy.</p></div><div class="certification-action"><span class="verification-status">CERTIFICATE LINK NEEDED</span><a href="#contact" class="text-link">Add evidence ↗</a></div></article>
-        <article class="certification-card"><div class="certification-icon">05</div><div class="certification-info"><span class="certification-provider">FIVE-DAY BOOTCAMP</span><h3>Designing and Deploying Computer Networks (DDCN)</h3><p>Training related to computer networking design and deployment.</p></div><div class="certification-action"><span class="verification-status">CERTIFICATE LINK NEEDED</span><a href="#contact" class="text-link">Add evidence ↗</a></div></article>
+        <!-- Entry 01: Programming in Java -->
+        <article class="certification-card" data-cert-id="java">
+          <div class="certification-icon">01</div>
+          <div class="certification-info">
+            <span class="certification-provider">NPTEL • IIT KHARAGPUR</span>
+            <h3>Programming in Java</h3>
+            <p>Programming foundations and structured problem-solving through a 12-week NPTEL online course.</p>
+            <div class="cert-meta-tags">
+              <span class="cert-tag cert-tag-elite">Elite</span>
+              <span class="cert-tag">Consolidated Score: 61%</span>
+              <span class="cert-tag">Duration: Jan–Apr 2026 (12 weeks)</span>
+              <span class="cert-tag">Credits: 4</span>
+              <span class="cert-tag">Holder: Vinay G P</span>
+            </div>
+          </div>
+          <div class="certification-action">
+            <div class="cert-preview-card" role="button" tabindex="0" data-cert-src="assets/certificates/programming-in-java.png" data-cert-title="Programming in Java" data-cert-provider="NPTEL, Indian Institute of Technology Kharagpur" data-cert-tags="Elite|Consolidated Score: 61%|Duration: January–April 2026 (12 weeks)|Recommended Credits: 4|Certificate Holder: Vinay G P" aria-label="View Programming in Java certificate">
+              <img src="assets/certificates/programming-in-java.png" alt="Programming in Java — NPTEL IIT Kharagpur Certificate" loading="lazy" class="cert-thumb-img">
+              <span class="cert-thumb-zoom">🔍 Click to view</span>
+            </div>
+            <button class="btn-cert-action cert-view-btn" data-cert-src="assets/certificates/programming-in-java.png" data-cert-title="Programming in Java" data-cert-provider="NPTEL, Indian Institute of Technology Kharagpur" data-cert-tags="Elite|Consolidated Score: 61%|Duration: January–April 2026 (12 weeks)|Recommended Credits: 4|Certificate Holder: Vinay G P">View Certificate ↗</button>
+          </div>
+        </article>
+
+        <!-- Entry 02: Problem Solving (Intermediate) -->
+        <article class="certification-card" data-cert-id="hackerrank">
+          <div class="certification-icon">02</div>
+          <div class="certification-info">
+            <span class="certification-provider">HACKERRANK</span>
+            <h3>Problem Solving (Intermediate)</h3>
+            <p>Successfully passed the HackerRank Problem Solving (Intermediate) skill certification test.</p>
+            <div class="cert-meta-tags">
+              <span class="cert-tag">Certificate of Accomplishment</span>
+              <span class="cert-tag">Date Earned: 29 April 2025</span>
+              <span class="cert-tag">Holder: Vinay G P</span>
+            </div>
+          </div>
+          <div class="certification-action">
+            <div class="cert-preview-card" role="button" tabindex="0" data-cert-src="assets/certificates/hackerrank-problem-solving.png" data-cert-title="Problem Solving (Intermediate)" data-cert-provider="HackerRank" data-cert-tags="Certificate Type: Certificate of Accomplishment|Date Earned: 29 April 2025|Certificate Holder: Vinay G P" aria-label="View HackerRank Problem Solving certificate">
+              <img src="assets/certificates/hackerrank-problem-solving.png" alt="HackerRank Problem Solving Intermediate Certificate" loading="lazy" class="cert-thumb-img">
+              <span class="cert-thumb-zoom">🔍 Click to view</span>
+            </div>
+            <button class="btn-cert-action cert-view-btn" data-cert-src="assets/certificates/hackerrank-problem-solving.png" data-cert-title="Problem Solving (Intermediate)" data-cert-provider="HackerRank" data-cert-tags="Certificate Type: Certificate of Accomplishment|Date Earned: 29 April 2025|Certificate Holder: Vinay G P">View Certificate ↗</button>
+          </div>
+        </article>
+
+        <!-- Entry 03: IBM SkillsBuild Certificates (Expandable Group) -->
+        <article class="certification-card certification-group-card" id="ibmCertCard" data-cert-id="ibm-group">
+          <div class="cert-group-header">
+            <div class="certification-icon">03</div>
+            <div class="certification-info">
+              <span class="certification-provider">IBM SKILLSBUILD</span>
+              <h3>Artificial Intelligence Fundamentals</h3>
+              <p>Foundational understanding of artificial intelligence concepts and customer engagement skills.</p>
+              <div class="cert-meta-tags">
+                <span class="cert-tag cert-tag-count">3 Certificates Group</span>
+                <span class="cert-tag">Credly Verified</span>
+                <span class="cert-tag">Holder: Vinay G P</span>
+              </div>
+            </div>
+            <div class="certification-action">
+              <button class="btn-cert-action btn-cert-toggle" id="ibmToggleBtn" aria-expanded="false" aria-controls="ibmExpandedSection">View All Certificates <span class="toggle-arrow" aria-hidden="true">↓</span></button>
+            </div>
+          </div>
+          <div class="ibm-expanded-wrapper" id="ibmExpandedSection" hidden>
+            <div class="ibm-grid-notice">
+              <span>IBM SkillsBuild Professional Pathways — 3 Verified Credentials</span>
+            </div>
+            <div class="ibm-subcards-grid">
+              <!-- IBM Certificate A -->
+              <div class="ibm-subcard">
+                <div class="ibm-subcard-media" role="button" tabindex="0" data-cert-src="assets/certificates/ibm-ai-fundamentals.png" data-cert-title="Artificial Intelligence Fundamentals" data-cert-provider="IBM SkillsBuild" data-cert-tags="Issuing Organization: IBM SkillsBuild|Certificate Holder: Vinay G P|Issue Date: 30 August 2025|Credly Verified" data-credly-url="https://www.credly.com/badges/f62238ff-8950-40d1-820d-ae7132a097f5" aria-label="View Artificial Intelligence Fundamentals Certificate">
+                  <img src="assets/certificates/ibm-ai-fundamentals.png" alt="Artificial Intelligence Fundamentals — IBM SkillsBuild Certificate" loading="lazy" class="subcard-img">
+                  <span class="cert-thumb-zoom">🔍 Click to view</span>
+                </div>
+                <div class="ibm-subcard-body">
+                  <span class="subcard-provider">IBM SKILLSBUILD</span>
+                  <h4>Artificial Intelligence Fundamentals</h4>
+                  <div class="subcard-meta">
+                    <div><span class="subcard-label">Holder:</span> <strong>Vinay G P</strong></div>
+                    <div><span class="subcard-label">Issue Date:</span> <span>30 August 2025</span></div>
+                  </div>
+                  <div class="subcard-actions">
+                    <button class="btn-subcard-action btn-subcard-view" data-cert-src="assets/certificates/ibm-ai-fundamentals.png" data-cert-title="Artificial Intelligence Fundamentals" data-cert-provider="IBM SkillsBuild" data-cert-tags="Issuing Organization: IBM SkillsBuild|Certificate Holder: Vinay G P|Issue Date: 30 August 2025|Credly Verified" data-credly-url="https://www.credly.com/badges/f62238ff-8950-40d1-820d-ae7132a097f5">View Certificate</button>
+                    <a href="https://www.credly.com/badges/f62238ff-8950-40d1-820d-ae7132a097f5" target="_blank" rel="noopener noreferrer" class="btn-subcard-action btn-subcard-verify">Verify Certificate ↗</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- IBM Certificate B -->
+              <div class="ibm-subcard">
+                <div class="ibm-subcard-media" role="button" tabindex="0" data-cert-src="assets/certificates/ibm-customer-communication.png" data-cert-title="Customer Engagement: Communication and Personality Dynamics" data-cert-provider="IBM SkillsBuild" data-cert-tags="Issuing Organization: IBM SkillsBuild|Certificate Holder: Vinay G P|Issue Date: 30 August 2025|Credly Verified" data-credly-url="https://www.credly.com/badges/669a079f-a08d-4c98-a636-cda01a618910" aria-label="View Customer Engagement Communication and Personality Dynamics Certificate">
+                  <img src="assets/certificates/ibm-customer-communication.png" alt="Customer Engagement: Communication and Personality Dynamics — IBM SkillsBuild Certificate" loading="lazy" class="subcard-img">
+                  <span class="cert-thumb-zoom">🔍 Click to view</span>
+                </div>
+                <div class="ibm-subcard-body">
+                  <span class="subcard-provider">IBM SKILLSBUILD</span>
+                  <h4>Customer Engagement: Communication and Personality Dynamics</h4>
+                  <div class="subcard-meta">
+                    <div><span class="subcard-label">Holder:</span> <strong>Vinay G P</strong></div>
+                    <div><span class="subcard-label">Issue Date:</span> <span>30 August 2025</span></div>
+                  </div>
+                  <div class="subcard-actions">
+                    <button class="btn-subcard-action btn-subcard-view" data-cert-src="assets/certificates/ibm-customer-communication.png" data-cert-title="Customer Engagement: Communication and Personality Dynamics" data-cert-provider="IBM SkillsBuild" data-cert-tags="Issuing Organization: IBM SkillsBuild|Certificate Holder: Vinay G P|Issue Date: 30 August 2025|Credly Verified" data-credly-url="https://www.credly.com/badges/669a079f-a08d-4c98-a636-cda01a618910">View Certificate</button>
+                    <a href="https://www.credly.com/badges/669a079f-a08d-4c98-a636-cda01a618910" target="_blank" rel="noopener noreferrer" class="btn-subcard-action btn-subcard-verify">Verify Certificate ↗</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- IBM Certificate C -->
+              <div class="ibm-subcard">
+                <div class="ibm-subcard-media" role="button" tabindex="0" data-cert-src="assets/certificates/ibm-customer-problem-solving.png" data-cert-title="Customer Engagement: Problem Solving and Process Controls" data-cert-provider="IBM SkillsBuild" data-cert-tags="Issuing Organization: IBM SkillsBuild|Certificate Holder: Vinay G P|Issue Date: 30 August 2025|Credly Verified" data-credly-url="https://www.credly.com/badges/ce5b8452-7798-4d1d-919d-6a1481ec37fe" aria-label="View Customer Engagement Problem Solving and Process Controls Certificate">
+                  <img src="assets/certificates/ibm-customer-problem-solving.png" alt="Customer Engagement: Problem Solving and Process Controls — IBM SkillsBuild Certificate" loading="lazy" class="subcard-img">
+                  <span class="cert-thumb-zoom">🔍 Click to view</span>
+                </div>
+                <div class="ibm-subcard-body">
+                  <span class="subcard-provider">IBM SKILLSBUILD</span>
+                  <h4>Customer Engagement: Problem Solving and Process Controls</h4>
+                  <div class="subcard-meta">
+                    <div><span class="subcard-label">Holder:</span> <strong>Vinay G P</strong></div>
+                    <div><span class="subcard-label">Issue Date:</span> <span>30 August 2025</span></div>
+                  </div>
+                  <div class="subcard-actions">
+                    <button class="btn-subcard-action btn-subcard-view" data-cert-src="assets/certificates/ibm-customer-problem-solving.png" data-cert-title="Customer Engagement: Problem Solving and Process Controls" data-cert-provider="IBM SkillsBuild" data-cert-tags="Issuing Organization: IBM SkillsBuild|Certificate Holder: Vinay G P|Issue Date: 30 August 2025|Credly Verified" data-credly-url="https://www.credly.com/badges/ce5b8452-7798-4d1d-919d-6a1481ec37fe">View Certificate</button>
+                    <a href="https://www.credly.com/badges/ce5b8452-7798-4d1d-919d-6a1481ec37fe" target="_blank" rel="noopener noreferrer" class="btn-subcard-action btn-subcard-verify">Verify Certificate ↗</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Entry 04: Professional Certificate Program in Internet Governance and Digital Policy -->
+        <article class="certification-card" data-cert-id="iiro-isoc">
+          <div class="certification-icon">04</div>
+          <div class="certification-info">
+            <span class="certification-provider">IIRO • ISOC BENGALURU CHAPTER</span>
+            <h3>Professional Certificate Program in Internet Governance and Digital Policy</h3>
+            <p>Participated in the Professional Certificate Program in Internet Governance and Digital Policy, organized by the India Internet Research Organisation (IIRO) and Internet Society (ISOC) Bengaluru Chapter.</p>
+            <div class="cert-meta-tags">
+              <span class="cert-tag">Certificate of Completion</span>
+              <span class="cert-tag">Holder: Vinay G P</span>
+              <span class="cert-tag">IIRO &amp; ISOC Bengaluru</span>
+            </div>
+          </div>
+          <div class="certification-action">
+            <div class="cert-preview-card" role="button" tabindex="0" data-cert-src="assets/certificates/internet-governance-digital-policy.png" data-cert-title="Professional Certificate Program in Internet Governance and Digital Policy" data-cert-provider="India Internet Research Organisation (IIRO) and Internet Society (ISOC) Bengaluru Chapter" data-cert-tags="Certificate Type: Certificate of Completion|Organizers: India Internet Research Organisation (IIRO) &amp; Internet Society (ISOC) Bengaluru Chapter|Certificate Holder: Vinay G P" aria-label="View Internet Governance and Digital Policy certificate">
+              <img src="assets/certificates/internet-governance-digital-policy.png" alt="Internet Governance and Digital Policy Certificate" loading="lazy" class="cert-thumb-img">
+              <span class="cert-thumb-zoom">🔍 Click to view</span>
+            </div>
+            <button class="btn-cert-action cert-view-btn" data-cert-src="assets/certificates/internet-governance-digital-policy.png" data-cert-title="Professional Certificate Program in Internet Governance and Digital Policy" data-cert-provider="India Internet Research Organisation (IIRO) and Internet Society (ISOC) Bengaluru Chapter" data-cert-tags="Certificate Type: Certificate of Completion|Organizers: India Internet Research Organisation (IIRO) &amp; Internet Society (ISOC) Bengaluru Chapter|Certificate Holder: Vinay G P">View Certificate ↗</button>
+          </div>
+        </article>
       </div>
       <p class="section-footnote">Ensure certificate titles and credential links match the original documents before sharing this portfolio.</p>
     </div>

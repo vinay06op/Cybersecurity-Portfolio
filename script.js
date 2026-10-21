@@ -180,17 +180,125 @@ function closeProject(){
 document.querySelectorAll(".project-open").forEach(button=>button.addEventListener("click",()=>openProject(button.dataset.project)));
 modalClose.addEventListener("click",closeProject);
 projectModal.querySelectorAll("[data-close-modal]").forEach(el=>el.addEventListener("click",closeProject));
+
+/* Certificate Modal & Interactivity */
+const certModal=document.getElementById("certModal");
+const certModalClose=document.getElementById("certModalClose");
+const certModalImg=document.getElementById("certModalImg");
+const certModalTitle=document.getElementById("certModalTitle");
+const certModalIssuer=document.getElementById("certModalIssuer");
+const certModalExtLink=document.getElementById("certModalExtLink");
+const certModalBadges=document.getElementById("certModalBadges");
+const certModalCredlyWrap=document.getElementById("certModalCredlyWrap");
+
+function openCertificate(src,title,provider,tags,credlyUrl){
+  if(!certModal)return;
+  lastFocusedElement=document.activeElement;
+  certModalImg.src=src;
+  certModalImg.alt=title;
+  certModalTitle.textContent=title;
+  certModalIssuer.textContent=provider||"";
+  certModalExtLink.href=src;
+
+  if(tags){
+    const tagList=tags.split("|").filter(Boolean);
+    certModalBadges.innerHTML=tagList.map(t=>`<span class="cert-tag">${escapeHTML(t)}</span>`).join("");
+  }else{
+    certModalBadges.innerHTML="";
+  }
+
+  if(credlyUrl){
+    certModalCredlyWrap.innerHTML=`<a href="${escapeHTML(credlyUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Verify Credential on Credly ↗</a>`;
+  }else{
+    certModalCredlyWrap.innerHTML="";
+  }
+
+  certModal.classList.add("is-open");
+  certModal.setAttribute("aria-hidden","false");
+  document.body.classList.add("modal-open");
+  if(certModalClose)certModalClose.focus();
+}
+
+function closeCertificate(){
+  if(!certModal||!certModal.classList.contains("is-open"))return;
+  certModal.classList.remove("is-open");
+  certModal.setAttribute("aria-hidden","true");
+  document.body.classList.remove("modal-open");
+  if(lastFocusedElement)lastFocusedElement.focus();
+}
+
+if(certModalClose){
+  certModalClose.addEventListener("click",closeCertificate);
+}
+if(certModal){
+  certModal.querySelectorAll("[data-close-cert-modal]").forEach(el=>el.addEventListener("click",closeCertificate));
+}
+
+document.querySelectorAll("[data-cert-src]").forEach(el=>{
+  const handler=()=>{
+    const src=el.dataset.certSrc;
+    const title=el.dataset.certTitle||"Certificate";
+    const provider=el.dataset.certProvider||"";
+    const tags=el.dataset.certTags||"";
+    const credly=el.dataset.credlyUrl||"";
+    openCertificate(src,title,provider,tags,credly);
+  };
+  el.addEventListener("click",handler);
+  if(el.getAttribute("role")==="button"){
+    el.addEventListener("keydown",e=>{
+      if(e.key==="Enter"||e.key===" "){
+        e.preventDefault();
+        handler();
+      }
+    });
+  }
+});
+
+/* IBM SkillsBuild Group Expand / Collapse Toggle */
+const ibmToggleBtn=document.getElementById("ibmToggleBtn");
+const ibmExpandedSection=document.getElementById("ibmExpandedSection");
+if(ibmToggleBtn&&ibmExpandedSection){
+  ibmToggleBtn.addEventListener("click",()=>{
+    const isHidden=ibmExpandedSection.hasAttribute("hidden");
+    if(isHidden){
+      ibmExpandedSection.removeAttribute("hidden");
+      ibmToggleBtn.setAttribute("aria-expanded","true");
+      ibmToggleBtn.innerHTML='Collapse Certificates <span class="toggle-arrow" aria-hidden="true">↑</span>';
+    }else{
+      ibmExpandedSection.setAttribute("hidden","");
+      ibmToggleBtn.setAttribute("aria-expanded","false");
+      ibmToggleBtn.innerHTML='View All Certificates <span class="toggle-arrow" aria-hidden="true">↓</span>';
+    }
+  });
+}
+
 document.addEventListener("keydown",e=>{
-  if(!projectModal.classList.contains("is-open"))return;
-  if(e.key==="Escape"){closeProject();return;}
+  if(e.key==="Escape"){
+    if(certModal&&certModal.classList.contains("is-open")){
+      closeCertificate();
+      return;
+    }
+    if(projectModal&&projectModal.classList.contains("is-open")){
+      closeProject();
+      return;
+    }
+  }
   if(e.key==="Tab"){
-    const focusable=Array.from(modalDialog.querySelectorAll('a[href],button:not([disabled]),[tabindex="0"]'));
+    let activeModalDialog=null;
+    if(certModal&&certModal.classList.contains("is-open")){
+      activeModalDialog=certModal.querySelector(".modal-dialog");
+    }else if(projectModal&&projectModal.classList.contains("is-open")){
+      activeModalDialog=modalDialog;
+    }
+    if(!activeModalDialog)return;
+    const focusable=Array.from(activeModalDialog.querySelectorAll('a[href],button:not([disabled]),[tabindex="0"]'));
     if(!focusable.length)return;
     const first=focusable[0],last=focusable[focusable.length-1];
     if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
     else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
   }
 });
+
 document.getElementById("currentYear").textContent=new Date().getFullYear();
 
 /* Enter verified TryHackMe room count here when known; null shows a placeholder. */
@@ -200,3 +308,4 @@ document.querySelectorAll("[data-learning-count]").forEach(el=>{
   el.textContent=Number.isInteger(count)&&count>=0?String(count):"Not provided";
 });
 console.log("Cybersecurity portfolio initialized.");
+
